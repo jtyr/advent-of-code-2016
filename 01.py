@@ -50,8 +50,11 @@ How many blocks away is the first location you visit twice?
 """
 
 
-def get_data():
-    f = open("input/01.txt", "r")
+import sys
+
+
+def get_data(name):
+    f = open(name, 'r')
 
     return f.read()
 
@@ -75,7 +78,11 @@ def walk(path, axis, steps, multi=1):
 
 
 def main():
-    data = get_data()
+    if len(sys.argv) < 2:
+        print("Usage: %s <input_file>" % sys.argv[0])
+        sys.exit(1)
+
+    data = get_data(sys.argv[1])
     path = [{'x': 0, 'y': 0}]
     direction = 'N'
     twice_dist = None

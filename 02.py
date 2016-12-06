@@ -84,8 +84,11 @@ bathroom code?
 """
 
 
-def get_data():
-    f = open("input/02.txt", "r")
+import sys
+
+
+def get_data(name):
+    f = open(name, 'r')
 
     return f.readlines()
 
@@ -104,6 +107,12 @@ def move(keypad, x, y, direction):
 
 
 def main():
+    if len(sys.argv) < 2:
+        print("Usage: %s <input_file>" % sys.argv[0])
+        sys.exit(1)
+
+    data = get_data(sys.argv[1])
+
     keypad1 = [
         [None, None, None, None, None],
         [None,  '1',  '2',  '3', None],
@@ -118,8 +127,6 @@ def main():
         [None, None,  'A',  'B',  'C', None, None],
         [None, None, None,  'D', None, None, None],
         [None, None, None, None, None, None, None]]
-
-    data = get_data()
 
     for i, keypad in enumerate((keypad1, keypad2)):
         if i == 0:

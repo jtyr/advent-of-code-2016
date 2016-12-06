@@ -41,8 +41,11 @@ listed triangles are possible?
 """
 
 
-def get_data():
-    f = open("input/03.txt", "r")
+import sys
+
+
+def get_data(name):
+    f = open(name, 'r')
 
     return f.readlines()
 
@@ -58,7 +61,11 @@ def is_triangle(a, b, c):
 
 
 def main():
-    data = get_data()
+    if len(sys.argv) < 2:
+        print("Usage: %s <input_file>" % sys.argv[0])
+        sys.exit(1)
+
+    data = get_data(sys.argv[1])
     cnt1 = 0
     cnt2 = 0
     lst1 = []
