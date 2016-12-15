@@ -64,7 +64,6 @@ register a?
 
 
 import sys
-from time import sleep
 
 
 def get_data(name):
