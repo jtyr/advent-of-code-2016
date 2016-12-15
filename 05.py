@@ -69,12 +69,18 @@ import hashlib
 import sys
 
 
+def get_data(name):
+    f = open(name, 'r')
+
+    return f.read()
+
+
 def main():
     if len(sys.argv) < 2:
-        print("Usage: %s <door_id>" % sys.argv[0])
+        print("Usage: %s <input_file>" % sys.argv[0])
         sys.exit(1)
 
-    door_id = sys.argv[1]
+    door_id = get_data(sys.argv[1]).strip()
     idx = 0
     password1 = ''
     password2 = [None, None, None, None, None, None, None, None]

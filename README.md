@@ -1,1 +1,1 @@
-Solutions of puzzles from http://adventofcode.com/ for the year 2016.
+Solutions of puzzles of the [Advent of Code 2016](http://adventofcode.com/2016).
